@@ -1,12 +1,11 @@
 package rps.bll.player;
 
 //Project imports
-import rps.bll.game.IGameState;
-import rps.bll.game.Move;
-import rps.bll.game.Result;
+import rps.bll.game.*;
 
 //Java imports
-import java.util.ArrayList;
+import java.util.*;
+import java.util.random.*;
 
 /**
  * Example implementation of a player.
@@ -46,10 +45,40 @@ public class Player implements IPlayer {
      */
     @Override
     public Move doMove(IGameState state) {
+        int sWins;
+        int rWins;
+        int pWins;
+        int scissorPlays;
+        int rockPlays;
+        int paperPlays;
+
+        Random rand = new Random();
+        int r= rand.nextInt(3);
+
         //Historic data to analyze and decide next move...
         ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
+        sWins = (int) results.stream().filter(result -> result.getType() == ResultType.Win).filter(result -> result.getWinnerMove() == Move.Scissor).count();
+        rWins = (int) results.stream().filter(result -> result.getType() == ResultType.Win).filter(result -> result.getWinnerMove() == Move.Rock).count();
+        pWins = (int) results.stream().filter(result -> result.getType() == ResultType.Win).filter(result -> result.getWinnerMove() == Move.Paper).count();
+        int rounds = results.size();
 
-        //Implement better AI here...
-        return Move.Rock;
+        if(rounds > 5) {
+            if (sWins > rWins) {
+                if (sWins > pWins) {
+                    System.out.println("Scissor has won the most times, with " + sWins + " out of " + rounds + " rounds.");
+                    return Move.Scissor;
+                } else {
+                    System.out.println("Paper has won the most times, with " + pWins + " out of " + rounds + " rounds.");
+                    return Move.Paper;
+                }
+            } else if (rWins > pWins) {
+                System.out.println("Rock has won the most times, with " + rWins + " out of " + rounds + " rounds.");
+                return Move.Rock;
+            } else {
+                System.out.println("Paper has won the most times, with " + pWins + " out of " + rounds + " rounds.");
+                return Move.Paper;
+            }
+        }else System.out.println("I currently have no win knowledge.");
+        if(r == 2){return Move.Scissor;} else if (r == 1) {return Move.Rock;} else return Move.Paper;
     }
 }

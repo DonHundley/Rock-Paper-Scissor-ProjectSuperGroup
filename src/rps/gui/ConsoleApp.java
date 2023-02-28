@@ -46,8 +46,12 @@ public class ConsoleApp {
             });
         }
 
-        if (ge.getGameState().getHistoricResults().size() > 0)
-            System.out.println("Game stats: ....ehmmmm..not implemented yet...please FIXME");
+        int pWins = 0;
+        if (ge.getGameState().getHistoricResults().size() > 0){
+            pWins = (int) ge.getGameState().getHistoricResults().stream().filter(result -> result.getType() == ResultType.Win).filter(result -> result.getWinnerPlayer().getPlayerType() == PlayerType.Human).count();
+            System.out.println(playerName +" won "+ + pWins + " out of " + ge.getGameState().getHistoricResults().size() + " rounds played.");
+        }
+
     }
 
 
