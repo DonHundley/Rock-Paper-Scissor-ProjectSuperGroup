@@ -31,6 +31,7 @@ public class Roomba implements IPlayer{
     }
 
 
+
     @Override
     public String getPlayerName() {
         return name;
@@ -101,5 +102,9 @@ public class Roomba implements IPlayer{
         } else if (r == 1) {
             return Move.Rock;
         } else return Move.Paper;
+    }
+
+    public String getName() {
+        return name;
     }
 }

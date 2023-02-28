@@ -23,6 +23,7 @@ public class GameState implements IGameState {
         this.roundNumber = roundNumber;
     }
 
+  public GameState(){}
     @Override
     public int getRoundNumber() {
         return roundNumber;

@@ -127,4 +127,5 @@ public class ConsoleApp {
                 statusText + result.getLoserPlayer().getPlayerName() +
                 " (" + result.getLoserMove() + ")!";
     }
+
 }

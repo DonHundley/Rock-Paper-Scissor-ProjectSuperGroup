@@ -1,0 +1,14 @@
+/*@font-face {
+    font-family: "Press start 2p";
+    src: url("/rps/resources/PressStart2P-Regular.ttf");
+}
+
+* {
+    -fx-font-family: "Press start 2p", sans-serif; }
+*/
+
+#MainAnchorPane {
+    -fx-background-image: url('/rps/resources/background2.png');
+    -fx-background-size: cover;
+
+}

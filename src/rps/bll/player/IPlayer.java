@@ -42,4 +42,6 @@ public interface IPlayer {
      */
     public Move doMove(IGameState state);
 
+
+
 }

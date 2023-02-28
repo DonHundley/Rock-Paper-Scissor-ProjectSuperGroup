@@ -3,51 +3,61 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
+<AnchorPane fx:id="MainAnchorPane" prefHeight="600.0" prefWidth="600.0" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="115.0" layoutX="50.0" layoutY="446.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="115.0" layoutX="300.0" layoutY="446.0" stroke="BLACK" strokeType="INSIDE" width="244.0" AnchorPane.rightAnchor="57.0" />
-      <Label layoutX="57.0" layoutY="460.0" prefHeight="88.0" prefWidth="237.0" text="What will &lt;player-name&gt; do?" wrapText="true">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="107.0" layoutX="300.0" layoutY="306.0" stroke="BLACK" strokeType="INSIDE" width="270.0" />
-      <Label layoutX="310.0" layoutY="315.0" text="PLAYER-NAME" />
-      <Label layoutX="455.0" layoutY="315.0" text="ROUND 0" />
-      <Label layoutX="523.0" layoutY="315.0" text="TIES 0" />
-      <ProgressBar layoutX="308.0" layoutY="349.0" prefHeight="18.0" prefWidth="167.0" progress="0.0" />
-      <Label layoutX="310.0" layoutY="387.0" text="WIN/LOSS" />
-      <Label layoutX="455.0" layoutY="387.0" text="0/3" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="107.0" layoutX="32.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="270.0" AnchorPane.leftAnchor="32.0" />
-      <Label layoutX="42.0" layoutY="44.0" text="AI" />
-      <Label layoutX="192.0" layoutY="44.0" text="BOT DIFFICULTY 1" />
-      <ProgressBar layoutX="40.0" layoutY="78.0" prefHeight="18.0" prefWidth="167.0" progress="0.0" />
-      <Label layoutX="42.0" layoutY="116.0" text="WIN/LOSS" />
-      <Label layoutX="187.0" layoutY="116.0" text="0/3" />
-      <Button layoutX="318.0" layoutY="469.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="PLAY">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ccaa4e" height="115.0" layoutX="32.0" layoutY="471.0" stroke="BLACK" strokeType="INSIDE" width="265.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="115.0" layoutX="296.0" layoutY="471.0" stroke="#6b677b" strokeType="INSIDE" strokeWidth="3.0" width="271.0" AnchorPane.rightAnchor="33.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9fad9" height="110.0" layoutX="262.0" layoutY="351.0" stroke="#a6aa81" strokeType="INSIDE" strokeWidth="3.0" width="300.0" />
+      <Label fx:id="labelPlayerName" layoutX="271.0" layoutY="363.0" text="Label" />
+      <Label fx:id="roundLabel" layoutX="451.0" layoutY="361.0" text="Round " />
+      <Label layoutX="510.0" layoutY="361.0" text="Ties 0" />
+      <ProgressBar layoutX="275.0" layoutY="406.0" prefHeight="18.0" prefWidth="167.0" progress="0.0" />
+      <Label layoutX="276.0" layoutY="430.0" text="Win/loss" />
+      <Label layoutX="402.0" layoutY="430.0" text="0/3" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9fad9" height="110.0" layoutX="32.0" layoutY="35.0" stroke="#a6aa81" strokeType="INSIDE" strokeWidth="3.0" width="300.0" AnchorPane.leftAnchor="32.0" />
+      <Label fx:id="labelAI" layoutX="42.0" layoutY="44.0" text="AI" />
+      <Label layoutX="262.0" layoutY="44.0" text="Bot level 1" />
+      <ProgressBar layoutX="40.0" layoutY="89.0" prefHeight="18.0" prefWidth="167.0" progress="0.0" />
+      <Label layoutX="44.0" layoutY="116.0" text="Win/loss" />
+      <Label layoutX="166.0" layoutY="116.0" text="0/3" />
+      <Button layoutX="324.0" layoutY="494.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="PLAY">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="318.0" layoutY="510.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="RESTART">
+      <Button layoutX="315.0" layoutY="535.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="RESTART">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="455.0" layoutY="469.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="RPS">
+      <Button layoutX="458.0" layoutY="494.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="RPS">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="455.0" layoutY="510.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="QUIT">
+      <Button layoutX="452.0" layoutY="535.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="QUIT">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#284f68" height="105.0" layoutX="38.0" layoutY="476.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" width="253.0" />
+      <Label layoutX="64.0" layoutY="493.0" text="What will the player" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label fx:id="labelPlayerName2" layoutX="66.0" layoutY="521.0" text="Label" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <Label layoutX="121.0" layoutY="521.0" text="do?" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <ImageView fx:id="imageAI" fitHeight="150.0" fitWidth="200.0" layoutX="358.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
