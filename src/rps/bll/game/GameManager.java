@@ -4,6 +4,7 @@ package rps.bll.game;
 import java.util.ArrayList;
 
 //Project imports
+import rps.bll.Bots.*;
 import rps.bll.player.IPlayer;
 
 /**
@@ -40,15 +41,21 @@ public class GameManager {
         int roundNumber = gameState.getRoundNumber();
 
         //Rules
-        if (human_move == bot_move)
+        if (human_move == bot_move){
             result = new Result(human, human_move, bot, bot_move, ResultType.Tie, roundNumber, human_move);
+            System.out.println(bot.getTieQuote());
+        }
         else if ((human_move == Move.Rock && bot_move == Move.Scissor) ||
                 (human_move == Move.Scissor && bot_move == Move.Paper) ||
                 (human_move == Move.Paper && bot_move == Move.Rock)) {
             result = new Result(human, human_move, bot, bot_move, ResultType.Win, roundNumber, human_move);
+            System.out.println(bot.getLossQuote());
         } else {
             result = new Result(bot, bot_move, human, human_move, ResultType.Win, roundNumber, human_move);
+            System.out.println(bot.getWinQuote());
         }
+
+
 
         gameState.setRoundNumber(++roundNumber);
         gameState.getHistoricResults().add(result);

@@ -1,6 +1,7 @@
 package rps.gui;
 
 // Project imports
+import rps.bll.Bots.*;
 import rps.bll.game.*;
 import rps.bll.player.*;
 
@@ -26,7 +27,9 @@ public class ConsoleApp {
         String playerName = keyboard.next();
 
         IPlayer human = new Player(playerName, PlayerType.Human);
-        IPlayer bot = new Player(getRandomBotName(), PlayerType.AI);
+
+        //IPlayer bot = new Bender("Bender", PlayerType.AI);
+        IPlayer bot = new Roomba("Roomba", PlayerType.AI);
 
         System.out.println("Your opponent is " + bot.getPlayerName());
         System.out.println("Starting game.... good luck both!");

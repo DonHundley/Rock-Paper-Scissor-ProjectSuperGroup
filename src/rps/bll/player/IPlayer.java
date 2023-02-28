@@ -17,6 +17,15 @@ public interface IPlayer {
      */
     public String getPlayerName();
 
+    /**
+     * These three methods will return a quote from the AI on certain conditions.
+     */
+    public String getWinQuote();
+
+    public String getTieQuote();
+
+    public String getLossQuote();
+
 
     /**
      * Returns the type of the player (AI or Human)
@@ -32,4 +41,5 @@ public interface IPlayer {
      * @param state
      */
     public Move doMove(IGameState state);
+
 }
