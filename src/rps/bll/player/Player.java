@@ -60,24 +60,38 @@ public class Player implements IPlayer {
         sWins = (int) results.stream().filter(result -> result.getType() == ResultType.Win).filter(result -> result.getWinnerMove() == Move.Scissor).count();
         rWins = (int) results.stream().filter(result -> result.getType() == ResultType.Win).filter(result -> result.getWinnerMove() == Move.Rock).count();
         pWins = (int) results.stream().filter(result -> result.getType() == ResultType.Win).filter(result -> result.getWinnerMove() == Move.Paper).count();
+        scissorPlays = (int) results.stream().filter(result -> result.getPlayerChoice() == Move.Scissor).count();
+        rockPlays = (int) results.stream().filter(result -> result.getPlayerChoice() == Move.Rock).count();
+        paperPlays = (int) results.stream().filter(result -> result.getPlayerChoice() == Move.Paper).count();
+
         int rounds = results.size();
 
-        if(rounds > 5) {
-            if (sWins > rWins) {
+        if(rounds >= 3) {
+            if (sWins >= rWins) {
                 if (sWins > pWins) {
-                    System.out.println("Scissor has won the most times, with " + sWins + " out of " + rounds + " rounds.");
-                    return Move.Scissor;
-                } else {
-                    System.out.println("Paper has won the most times, with " + pWins + " out of " + rounds + " rounds.");
+                    if(sWins > rockPlays){
+                        System.out.println("Scissor has won the most times, with " + sWins + " out of " + rounds + " rounds and the player has played rock less than the total amount of scissor wins. So I play Scissor.");
+                        return Move.Scissor;} else {
+                        System.out.println("Scissor has won the most times, with " + sWins + " out of " + rounds + " rounds and the player has played rock more than the total amount of scissor wins. So I play Paper.");
+                        return Move.Paper;}
+                } else if(pWins > scissorPlays){
+                    System.out.println("Paper has won the most times, with " + pWins + " out of " + rounds + " rounds and the player has played Scissor less than the total amount of paper wins. So I play Paper.");
                     return Move.Paper;
-                }
-            } else if (rWins > pWins) {
-                System.out.println("Rock has won the most times, with " + rWins + " out of " + rounds + " rounds.");
+                } else
+                    System.out.println("Paper has won the most times, with " + pWins + " out of " + rounds + " rounds and the player has played Scissor more than the total amount of paper wins. So I play Rock.");
+                    return Move.Rock;
+            } else if (rWins >= pWins) {
+                if (rWins > paperPlays){
+                    System.out.println("Rock has won the most times, with " + rWins + " out of " + rounds + " rounds and the player has played paper less than the total amount of rock wins. So I play Rock.");
+                    return Move.Rock;} else {
+                    System.out.println("Rock has won the most times, with " + rWins + " out of " + rounds + " rounds and the player has played paper more than the total amount of rock wins. So I play Scissor.");
+                    return Move.Scissor;}
+            } else if(pWins > scissorPlays){
+                System.out.println("Paper has won the most times, with " + pWins + " out of " + rounds + " rounds and the player has played scissor less than the total amount of paper wins. So I play Paper.");
+                return Move.Paper;}
+            else System.out.println("Paper has won the most times, with " + pWins + " out of " + rounds + " rounds and the player has played scissor more than the total amount of paper wins. So I play Rock.");
                 return Move.Rock;
-            } else {
-                System.out.println("Paper has won the most times, with " + pWins + " out of " + rounds + " rounds.");
-                return Move.Paper;
-            }
+
         }else System.out.println("I currently have no win knowledge.");
         if(r == 2){return Move.Scissor;} else if (r == 1) {return Move.Rock;} else return Move.Paper;
     }

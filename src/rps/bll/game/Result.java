@@ -16,6 +16,8 @@ public class Result {
     private IPlayer loserPlayer;
     private int roundNumber;
 
+    private Move playerChoice;
+
 
     /**
      * Initializes a new Result with a winner, loser, their moves and a type
@@ -26,18 +28,21 @@ public class Result {
      * @param type
      * @param roundNumber
      */
-    public Result(IPlayer winnerPlayer, Move winnerMove, IPlayer loserPlayer, Move loserMove, ResultType type, int roundNumber) {
+    public Result(IPlayer winnerPlayer, Move winnerMove, IPlayer loserPlayer, Move loserMove, ResultType type, int roundNumber, Move playerChoice) {
         this.winnerPlayer = winnerPlayer;
         this.winnerMove = winnerMove;
         this.loserPlayer = loserPlayer;
         this.loserMove = loserMove;
         this.type = type;
         this.roundNumber = roundNumber;
+        this.playerChoice = playerChoice;
     }
 
     public Move getWinnerMove() {
         return winnerMove;
     }
+
+    public Move getPlayerChoice(){return playerChoice;}
 
     public IPlayer getWinnerPlayer() {
         return winnerPlayer;
