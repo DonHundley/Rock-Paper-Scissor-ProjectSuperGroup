@@ -1,4 +1,4 @@
-package rps.bll.Bots;
+package rps.bll.bots;
 
 import rps.bll.game.*;
 import rps.bll.player.*;
@@ -7,7 +7,7 @@ import java.util.*;
 public class Roomba implements IPlayer{
 
 
-    private String name;
+    private String name = "Roomba";
     private PlayerType type;
 
     private String imageFilePath = "src/images/RoombaRPS.png";
@@ -19,9 +19,9 @@ public class Roomba implements IPlayer{
     private String tieQuote = "You open the bin on the Roomba after your turn and inside you find... a necktie?";
 
     /**
-     * @param name
+     *
      */
-    public Roomba(String name, PlayerType type) {
+    public Roomba(PlayerType type) {
         this.name = name;
         this.type = type;
         this.imageFilePath = imageFilePath;

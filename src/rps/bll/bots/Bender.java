@@ -1,4 +1,4 @@
-package rps.bll.Bots;
+package rps.bll.bots;
 
 import rps.bll.game.*;
 import rps.bll.player.*;
@@ -8,7 +8,7 @@ import java.util.*;
 public class Bender implements IPlayer{
 
 
-    private String name;
+    private String name = "Bender";
     private PlayerType type;
 
     private String imageFilePath = "src/images/benderRPS.png";
@@ -20,9 +20,9 @@ public class Bender implements IPlayer{
     private String tieQuote = "O’ cruel fate, to be thusly boned! Ask not for whom the bone bones—it bones for thee.";
 
     /**
-     * @param name
+     *
      */
-    public Bender(String name, PlayerType type) {
+    public Bender(PlayerType type) {
         this.name = name;
         this.type = type;
         this.imageFilePath = imageFilePath;

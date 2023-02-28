@@ -1,7 +1,6 @@
 package rps.bll.game;
 
 // Project imports
-import rps.bll.Bots.*;
 import rps.bll.player.IPlayer;
 
 /**

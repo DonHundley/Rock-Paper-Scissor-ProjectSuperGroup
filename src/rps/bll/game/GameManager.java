@@ -4,7 +4,6 @@ package rps.bll.game;
 import java.util.ArrayList;
 
 //Project imports
-import rps.bll.Bots.*;
 import rps.bll.player.IPlayer;
 
 /**
