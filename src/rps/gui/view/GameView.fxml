@@ -1,16 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
    <children>
-      <Label layoutX="86.0" layoutY="190.0" text="Now you can start to build the GUI and implement an awesome game">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="115.0" layoutX="50.0" layoutY="446.0" stroke="BLACK" strokeType="INSIDE" width="250.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="115.0" layoutX="300.0" layoutY="446.0" stroke="BLACK" strokeType="INSIDE" width="244.0" AnchorPane.rightAnchor="57.0" />
+      <Label layoutX="57.0" layoutY="460.0" prefHeight="88.0" prefWidth="237.0" text="What will &lt;player-name&gt; do?" wrapText="true">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="107.0" layoutX="300.0" layoutY="306.0" stroke="BLACK" strokeType="INSIDE" width="270.0" />
+      <Label layoutX="310.0" layoutY="315.0" text="PLAYER-NAME" />
+      <Label layoutX="455.0" layoutY="315.0" text="ROUND 0" />
+      <Label layoutX="523.0" layoutY="315.0" text="TIES 0" />
+      <ProgressBar layoutX="308.0" layoutY="349.0" prefHeight="18.0" prefWidth="167.0" progress="0.0" />
+      <Label layoutX="310.0" layoutY="387.0" text="WIN/LOSS" />
+      <Label layoutX="455.0" layoutY="387.0" text="0/3" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="107.0" layoutX="32.0" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" width="270.0" AnchorPane.leftAnchor="32.0" />
+      <Label layoutX="42.0" layoutY="44.0" text="AI" />
+      <Label layoutX="192.0" layoutY="44.0" text="BOT DIFFICULTY 1" />
+      <ProgressBar layoutX="40.0" layoutY="78.0" prefHeight="18.0" prefWidth="167.0" progress="0.0" />
+      <Label layoutX="42.0" layoutY="116.0" text="WIN/LOSS" />
+      <Label layoutX="187.0" layoutY="116.0" text="0/3" />
+      <Button layoutX="318.0" layoutY="469.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="PLAY">
          <font>
             <Font size="14.0" />
          </font>
-      </Label>
+      </Button>
+      <Button layoutX="318.0" layoutY="510.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="RESTART">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="455.0" layoutY="469.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="RPS">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="455.0" layoutY="510.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="QUIT">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
