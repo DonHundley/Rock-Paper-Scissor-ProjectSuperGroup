@@ -21,14 +21,14 @@ import java.util.*;
  */
 public class GameViewController implements Initializable {
 
-
-    public ProgressBar hpPlayer;
-
-    public ProgressBar hpAI;
+    @FXML
+    private ProgressBar hpPlayer;
+    @FXML
+    private ProgressBar hpAI;
 
 
     @FXML
-    private Button rpsButton, quitButton, restartButton,playButton;
+    private Button rpsButton, quitButton, restartButton, playButton;
 
     @FXML
     private TextArea gameHistoryText, botThoughtsText, moveHistoryText;
@@ -39,11 +39,14 @@ public class GameViewController implements Initializable {
 
     private String playerName;
 
+    private String botName;
+
 
     private Model model;
     private IPlayer human;
     private IPlayer bot;
     private GameManager ge;
+
     /**
      * Initializes the controller class.
      */
@@ -57,17 +60,26 @@ public class GameViewController implements Initializable {
      * We take the chosen username and bot and use them for our game.
      * This method will also inform the player of the game state on launch through our text areas.
      */
-    public void startGame(){
+    public void startGame() {
         moveHistoryText.setText("Welcome to the classic Rock, Paper and Scissor game! This is definitely how you remember always playing it." + "\n");
         human = new Player(playerName, PlayerType.Human);
-        //bot = new Roomba(PlayerType.AI);
-        //bot = new PetRock(PlayerType.AI);
-        bot = new Bender(PlayerType.AI);
 
-        ge = new GameManager(human,bot);
+        if (Objects.equals(botName, "PetRock")) {
+            bot = new PetRock(PlayerType.AI);
+            imageAI.setImage(new Image(getClass().getResourceAsStream("/images/petrock_1.png")));
+        } else if (Objects.equals(botName, "Roomba")) {
+            bot = new Roomba(PlayerType.AI);
+            imageAI.setImage(new Image(getClass().getResourceAsStream("/images/pngegg.png")));
+        } else {
+            bot = new Bender(PlayerType.AI);
+            imageAI.setImage(new Image(getClass().getResourceAsStream("/images/benderRPS.png")));
+        }
+
+
+        ge = new GameManager(human, bot);
 
         gameHistoryText.setText("The game is not yet over! Check here at the end.");
-        moveHistoryText.setText(moveHistoryText.getText()+"Your opponent is " + bot.getPlayerName() + "\n" + "Starting game.... good luck!" +"\n");
+        moveHistoryText.setText(moveHistoryText.getText() + "Your opponent is " + bot.getPlayerName() + "\n" + "Starting game.... good luck!" + "\n");
 
         setStaticLabels();
         updateLabels();
@@ -86,7 +98,8 @@ public class GameViewController implements Initializable {
         botTrashTalk();
     }
 
-    public void playScissors(ActionEvent actionEvent) {ge.playRound(Move.valueOf("Scissor"));
+    public void playScissors(ActionEvent actionEvent) {
+        ge.playRound(Move.valueOf("Scissor"));
         botTrashTalk();
         updateLabels();
     }
@@ -94,6 +107,7 @@ public class GameViewController implements Initializable {
     /**
      * When the user clicks the end button we use this method. First it tells the player how many rounds they won and what the total amount of rounds is.
      * Next it takes our result array and gives the user a break-down of each result in the game history text area.
+     *
      * @param actionEvent
      */
     public void endGame(ActionEvent actionEvent) {
@@ -109,36 +123,43 @@ public class GameViewController implements Initializable {
     /**
      * This method updates the labels we use to display information to the player such as win/loss ratio, current round, and the number of ties.
      */
-    private void updateLabels(){
+    private void updateLabels() {
         long botWins = ge.getGameState().getHistoricResults().stream().filter(result -> result.getType() == ResultType.Win).filter(result -> result.getWinnerPlayer().getPlayerType() == PlayerType.AI).count();
         long playerWins = ge.getGameState().getHistoricResults().stream().filter(result -> result.getType() == ResultType.Win).filter(result -> result.getWinnerPlayer().getPlayerType() == PlayerType.Human).count();
         roundLabel.setText("Round " + ge.getGameState().getRoundNumber());
         tiesLabel.setText("Ties " + ge.getGameState().getHistoricResults().stream().filter(result -> result.getType().equals(ResultType.Tie)).count());
         winLossAI.setText(botWins + " / " + playerWins);
         winLossPlayer.setText(playerWins + " / " + botWins);
+
+        double maxBar = 10;
+        hpPlayer.setProgress(1 - ((double) botWins/maxBar));
+        hpAI.setProgress(1 -((double) playerWins/maxBar));
     }
 
-    private void setStaticLabels(){
+    private void setStaticLabels() {
         labelPlayerName.setText(playerName);
-        labelPlayerName2.setText(playerName  + " do?");
+        labelPlayerName2.setText(playerName + " do?");
 
         labelAI.setText(bot.getPlayerName());
         roundLabel.setText("Round " + ge.getGameState().getRoundNumber());
 
-        if(bot.getPlayerName().equals("Bender")){botLevelDisplay.setText("Lv 3");
-        }else if (bot.getPlayerName().equals("Roomba")){
+        if (bot.getPlayerName().equals("Bender")) {
+            botLevelDisplay.setText("Lv 3");
+
+        } else if (bot.getPlayerName().equals("Roomba")) {
             botLevelDisplay.setText("Lv 2");
+
         } else botLevelDisplay.setText("lv 1");
-        imageAI.setImage(new Image(getClass().getResourceAsStream("/images/benderRPS.png")));
+
     }
 
     /**
      * This method first adds the result to our move history text area and then fetches our bot taunt based on the round result.
      * We also use this to change our round counter for the player and to fill our bot thoughts text area.
      */
-    public void botTrashTalk(){
+    public void botTrashTalk() {
         moveHistoryText.appendText("\n" + getResultAsString(ge.getResult()) + "\n");
-        if (ge.getResult().getType().equals(ResultType.Tie)){
+        if (ge.getResult().getType().equals(ResultType.Tie)) {
             moveHistoryText.appendText("\n" + bot.getPlayerName() + ": " + bot.getTieQuote() + "\n");
         } else if (ge.getResult().getWinnerPlayer().equals(bot)) {
             moveHistoryText.appendText("\n" + bot.getPlayerName() + ": " + bot.getWinQuote() + "\n");
@@ -161,7 +182,16 @@ public class GameViewController implements Initializable {
                 statusText + result.getLoserPlayer().getPlayerName() +
                 " (" + result.getLoserMove() + ")!";
     }
-    public void setPlayerName(String playerName) {this.playerName = playerName;}
 
-    public void setModel(Model model) {this.model = model;}
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    public void setBotName(String botName) {
+        this.botName = botName;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
 }

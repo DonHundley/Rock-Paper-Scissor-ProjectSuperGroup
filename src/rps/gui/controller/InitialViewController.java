@@ -1,5 +1,7 @@
 package rps.gui.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.Parent;
@@ -16,6 +18,7 @@ import java.net.*;
 import java.util.*;
 
 public class InitialViewController implements Initializable {
+
     @FXML
     private ComboBox botSelectorCombo;
     @FXML
@@ -23,10 +26,13 @@ public class InitialViewController implements Initializable {
 
     private Model model = new Model();
 
+
+
+
     /**
      * method that opens the game when the play button is pressed. the player name and game level are registered*/
     public void clickPlayButton(ActionEvent actionEvent) throws IOException {
-        if(!playerNameTextField.getText().isEmpty()) {
+        if(!playerNameTextField.getText().isEmpty() && !botSelectorCombo.getSelectionModel().isEmpty()) {
             String playerName = playerNameTextField.getText();
             model.setPlayerName(playerName);
 
@@ -35,6 +41,7 @@ public class InitialViewController implements Initializable {
             Parent root = loader.load();
 
             GameViewController gameViewController = loader.getController();
+            gameViewController.setBotName(botSelectorCombo.getSelectionModel().getSelectedItem().toString());
             gameViewController.setModel(model);
             gameViewController.setPlayerName(model.getPlayerName());
             gameViewController.startGame();
@@ -51,6 +58,9 @@ public class InitialViewController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<String> botList = FXCollections.observableArrayList();
+        botList.addAll("PetRock", "Roomba", "Bender");
+        botSelectorCombo.setItems(botList);
 
     }
 }
