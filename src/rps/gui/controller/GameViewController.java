@@ -66,15 +66,21 @@ public class GameViewController implements Initializable {
 
         if (Objects.equals(botName, "PetRock")) {
             bot = new PetRock(PlayerType.AI);
+            botLevelDisplay.setText("lv 1");
             imageAI.setImage(new Image(getClass().getResourceAsStream("/images/petrock_1.png")));
         } else if (Objects.equals(botName, "Roomba")) {
             bot = new Roomba(PlayerType.AI);
+            botLevelDisplay.setText("Lv 2");
             imageAI.setImage(new Image(getClass().getResourceAsStream("/images/pngegg.png")));
+        } else if (Objects.equals(botName, "Turing")) {
+            bot = new Turing(PlayerType.AI);
+            botLevelDisplay.setText("Lv 9001");
+            imageAI.setImage(new Image(getClass().getResourceAsStream("/images/aituring.jpg")));
         } else {
             bot = new Bender(PlayerType.AI);
             imageAI.setImage(new Image(getClass().getResourceAsStream("/images/benderRPS.png")));
+            botLevelDisplay.setText("Lv 3");
         }
-
 
         ge = new GameManager(human, bot);
 
@@ -147,14 +153,6 @@ public class GameViewController implements Initializable {
 
         labelAI.setText(bot.getPlayerName());
         roundLabel.setText("Round " + ge.getGameState().getRoundNumber());
-
-        if (bot.getPlayerName().equals("Bender")) {
-            botLevelDisplay.setText("Lv 3");
-
-        } else if (bot.getPlayerName().equals("Roomba")) {
-            botLevelDisplay.setText("Lv 2");
-
-        } else botLevelDisplay.setText("lv 1");
 
     }
 

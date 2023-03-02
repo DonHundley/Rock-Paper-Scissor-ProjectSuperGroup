@@ -59,7 +59,7 @@ public class InitialViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<String> botList = FXCollections.observableArrayList();
-        botList.addAll("PetRock", "Roomba", "Bender");
+        botList.addAll("PetRock", "Roomba", "Bender", "Turing");
         botSelectorCombo.setItems(botList);
         playerNameTextField.isFocused();
 

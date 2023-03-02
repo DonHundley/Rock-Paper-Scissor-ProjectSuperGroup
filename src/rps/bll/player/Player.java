@@ -17,7 +17,6 @@ public class Player implements IPlayer {
     private String name;
     private PlayerType type;
 
-    private String imageFilePath = "";
 
     private String winQuote = "";
 
@@ -35,7 +34,6 @@ public class Player implements IPlayer {
     public Player(String name, PlayerType type) {
         this.name = name;
         this.type = type;
-        this.imageFilePath = imageFilePath;
         this.lossQuote = lossQuote;
         this.winQuote = winQuote;
         this.tieQuote = tieQuote;
@@ -71,10 +69,6 @@ public class Player implements IPlayer {
         return type;
     }
 
-    @Override
-    public String getImageFilePath() {
-        return imageFilePath;
-    }
 
     /**
      * Decides the next move for the bot...

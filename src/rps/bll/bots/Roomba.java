@@ -10,8 +10,6 @@ public class Roomba implements IPlayer{
     private String name = "Roomba";
     private PlayerType type;
 
-    private String imageFilePath = "/images/RoombaRPS.png";
-
     private String winQuote = "You have been defeated by a vacuum, good work.";
 
     private String lossQuote = "The Roomba continues vacuuming.. are you trying to play a game against a vacuum?";
@@ -28,17 +26,12 @@ public class Roomba implements IPlayer{
     public Roomba(PlayerType type) {
         this.name = name;
         this.type = type;
-        this.imageFilePath = imageFilePath;
         this.lossQuote = lossQuote;
         this.winQuote = winQuote;
         this.tieQuote = tieQuote;
         this.botThoughts = botThoughts;
     }
 
-    @Override
-    public String getImageFilePath() {
-        return imageFilePath;
-    }
     @Override
     public String getBotThoughts() {
         return botThoughts;

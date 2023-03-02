@@ -11,8 +11,6 @@ public class PetRock  implements IPlayer {
     private String name = "Dwayne 'The PetRock' Johnson";
     private PlayerType type;
 
-    private String imageFilePath = "/images/petrock.png";
-
     private String winQuote = "Success isn’t overnight. It’s when every day you get a little better than the day before. It all adds up";
 
     private String lossQuote = "If something stands between you and your success, MOVE IT! Never be denied.";
@@ -26,15 +24,10 @@ public class PetRock  implements IPlayer {
     public PetRock(PlayerType type) {
         this.name = name;
         this.type = type;
-        this.imageFilePath = imageFilePath;
         this.lossQuote = lossQuote;
         this.winQuote = winQuote;
         this.tieQuote = tieQuote;
         this.botThoughts = botThoughts;
-    }
-    @Override
-    public String getImageFilePath() {
-        return imageFilePath;
     }
 
     @Override

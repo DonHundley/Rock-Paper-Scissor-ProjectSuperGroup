@@ -27,8 +27,6 @@ public interface IPlayer {
     public String getLossQuote();
 
 
-    public String getImageFilePath();
-
 
     public String getBotThoughts();
 

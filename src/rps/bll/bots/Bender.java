@@ -11,8 +11,6 @@ public class Bender implements IPlayer{
     private String name = "Bender";
     private PlayerType type;
 
-    private String imageFilePath = "/images/benderRPS.png";
-
     private String winQuote = "Bite my shiny metal ass!";
 
     private String lossQuote = "Yeah, well.. I'm gonna go make my own program, with blackjack and hookers. In fact, forget the program and the blackjack. Ahh, screw the whole thing!";
@@ -26,16 +24,12 @@ public class Bender implements IPlayer{
     public Bender(PlayerType type) {
         this.name = name;
         this.type = type;
-        this.imageFilePath = imageFilePath;
         this.lossQuote = lossQuote;
         this.winQuote = winQuote;
         this.tieQuote = tieQuote;
         this.botThoughts = botThoughts;
     }
-    @Override
-    public String getImageFilePath() {
-        return imageFilePath;
-    }
+
 
     @Override
     public String getWinQuote() {
