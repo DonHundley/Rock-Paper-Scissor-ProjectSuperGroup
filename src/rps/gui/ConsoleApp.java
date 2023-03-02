@@ -4,6 +4,7 @@ package rps.gui;
 import rps.bll.bots.*;
 import rps.bll.game.*;
 import rps.bll.player.*;
+import rps.gui.model.*;
 
 // Java imports
 import java.util.Random;
@@ -15,6 +16,8 @@ import java.util.Scanner;
  * @author smsj
  */
 public class ConsoleApp {
+
+    private Model model = new Model();
 
     /**
      * Starts the game
@@ -127,5 +130,4 @@ public class ConsoleApp {
                 statusText + result.getLoserPlayer().getPlayerName() +
                 " (" + result.getLoserMove() + ")!";
     }
-
 }

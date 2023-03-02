@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import rps.bll.player.*;
 import rps.bll.bots.*;
 import rps.gui.controller.GameViewController;
+import rps.gui.model.*;
 
 import java.io.IOException;
 import java.net.*;
@@ -20,17 +21,23 @@ public class InitialViewController implements Initializable {
     @FXML
     private TextField playerNameTextField;
 
+    private Model model = new Model();
+
     /**
      * method that opens the game when the play button is pressed. the player name and game level are registered*/
     public void clickPlayButton(ActionEvent actionEvent) throws IOException {
         if(!playerNameTextField.getText().isEmpty()) {
             String playerName = playerNameTextField.getText();
+            model.setPlayerName(playerName);
+
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/rps/gui/view/GameView.fxml"));
             Parent root = loader.load();
 
             GameViewController gameViewController = loader.getController();
-            gameViewController.setPlayerName(playerName);
+            gameViewController.setModel(model);
+            gameViewController.setPlayerName(model.getPlayerName());
+            gameViewController.startGame();
 
             Stage stage = new Stage();
             Scene scene = new Scene(root);
