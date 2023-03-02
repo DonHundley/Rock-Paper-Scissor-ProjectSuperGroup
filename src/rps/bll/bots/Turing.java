@@ -62,7 +62,12 @@ public class Turing  implements IPlayer {
 
     /**
      * Decides the next move for the bot...
-     * We check the checkFirst method first and if it is null we check the checkSecond method, and finally if it is null we check the checkThird method.
+     * First Turing checks if the player is cycling their moves (Ex. rock, paper, scissors, rock, paper, scissors) and if they are, it counters it.
+     * Next it checks if the player is alternating their moves (EX. rock, paper, rock, paper) and if so, counters the pattern.
+     * Then it will check if the player is spamming the same move (Ex. rock, rock, rock) and again, will counter that pattern.
+     * If those three patterns do not exist in the players recent moves Turing then checks all of their moves and if Turing sees a move used 60% of the time, it counters that move.
+     * Finally, if none of these 4 fit well into predicting the player patterns it will find the move that has won the most.
+     * It then takes that result, checks if the user is likely to use the counter and depending on that result Turing chooses its move.
      *
      * @param state Contains the current game state including historic moves/results
      * @return Next move
