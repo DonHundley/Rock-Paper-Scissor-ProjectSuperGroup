@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.1" orientation="VERTICAL" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
+<SplitPane dividerPositions="0.1" orientation="VERTICAL" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
    <items>
       <AnchorPane fx:id="MainAnchorPane" minHeight="-Infinity" prefHeight="600.0" stylesheets="@Style.css">
          <children>
@@ -28,19 +28,19 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="115.0" layoutX="296.0" layoutY="471.0" mouseTransparent="true" stroke="#6b677b" strokeType="INSIDE" strokeWidth="3.0" width="306.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="110.0" layoutX="271.0" layoutY="474.0" stroke="#8482c6" strokeMiterLimit="30.0" strokeType="INSIDE" strokeWidth="5.0" width="300.0" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="8.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9fad9" height="110.0" layoutX="289.0" layoutY="351.0" stroke="#184a23" strokeType="INSIDE" strokeWidth="3.0" width="265.0" AnchorPane.bottomAnchor="133.0" AnchorPane.rightAnchor="25.0" />
-            <Label fx:id="labelPlayerName" layoutX="330.0" layoutY="350.0" prefHeight="35.0" prefWidth="151.0" text="Label" AnchorPane.bottomAnchor="201.0" AnchorPane.rightAnchor="129.0">
+            <Label fx:id="labelPlayerName" layoutX="330.0" layoutY="350.0" prefHeight="49.0" prefWidth="135.0" text="Label" AnchorPane.bottomAnchor="193.0" AnchorPane.rightAnchor="145.0">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="14.0" />
                </font></Label>
-            <Label fx:id="roundLabel" layoutX="479.0" layoutY="350.0" prefHeight="17.0" prefWidth="50.0" text="Round " AnchorPane.bottomAnchor="219.0" AnchorPane.rightAnchor="81.0" />
+            <Label fx:id="roundLabel" layoutX="466.0" layoutY="364.0" prefHeight="17.0" prefWidth="71.0" text="Round " AnchorPane.bottomAnchor="219.0" AnchorPane.rightAnchor="73.0" />
             <Label fx:id="tiesLabel" layoutX="540.0" layoutY="350.0" text="Ties 0" AnchorPane.bottomAnchor="219.0" AnchorPane.rightAnchor="39.0" />
             <ProgressBar fx:id="hpPlayer" layoutX="341.0" layoutY="406.0" prefHeight="18.0" prefWidth="187.0" progress="0.0" stylesheets="@Style.css" AnchorPane.bottomAnchor="176.0" AnchorPane.rightAnchor="38.0" />
             <Label layoutX="302.0" layoutY="430.0" text="Win/loss" AnchorPane.bottomAnchor="139.0" AnchorPane.rightAnchor="231.0" />
             <Label fx:id="winLossPlayer" layoutX="524.0" layoutY="434.0" text="0/3" AnchorPane.bottomAnchor="149.0" AnchorPane.rightAnchor="37.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9fad9" height="110.0" layoutX="23.0" layoutY="34.0" stroke="#a6aa81" strokeType="INSIDE" strokeWidth="3.0" width="265.0" AnchorPane.leftAnchor="23.0" />
-            <Label fx:id="labelAI" layoutX="42.0" layoutY="44.0" prefHeight="35.0" prefWidth="141.0" text="AI" AnchorPane.leftAnchor="42.0">
+            <Label fx:id="labelAI" layoutX="32.0" layoutY="38.0" prefHeight="49.0" prefWidth="187.0" text="AI" wrapText="true" AnchorPane.leftAnchor="32.0">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font></Label>
             <Label fx:id="botLevelDisplay" layoutX="228.0" layoutY="44.0" text="Bot level 1" AnchorPane.leftAnchor="224.0" />
             <ProgressBar fx:id="hpAI" layoutX="97.0" layoutY="89.0" prefHeight="18.0" prefWidth="187.0" progress="0.0" AnchorPane.leftAnchor="93.0" />
@@ -99,7 +99,7 @@
                   </VBox>
                </children>
             </HBox>
-            <Button fx:id="rpsButton" layoutX="491.0" layoutY="508.0" mnemonicParsing="false" onAction="#playRock" style="-fx-background-color: transparent;" text="ROCK">
+            <Button fx:id="rpsButton" layoutX="491.0" layoutY="508.0" mnemonicParsing="false" onAction="#playRock" style="-fx-background-color: transparent;" text="ROCK" AnchorPane.bottomAnchor="62.0" AnchorPane.rightAnchor="65.0">
                <font>
                   <Font size="14.0" />
                </font>

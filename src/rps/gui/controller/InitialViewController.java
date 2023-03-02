@@ -61,6 +61,7 @@ public class InitialViewController implements Initializable {
         ObservableList<String> botList = FXCollections.observableArrayList();
         botList.addAll("PetRock", "Roomba", "Bender");
         botSelectorCombo.setItems(botList);
+        playerNameTextField.isFocused();
 
     }
 }

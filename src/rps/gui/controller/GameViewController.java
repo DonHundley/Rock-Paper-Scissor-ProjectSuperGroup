@@ -88,14 +88,14 @@ public class GameViewController implements Initializable {
 
     public void playRock(ActionEvent actionEvent) {
         ge.playRound(Move.valueOf("Rock"));
-        updateLabels();
         botTrashTalk();
+        updateLabels();
     }
 
     public void playPaper(ActionEvent actionEvent) {
         ge.playRound(Move.valueOf("Paper"));
-        updateLabels();
         botTrashTalk();
+        updateLabels();
     }
 
     public void playScissors(ActionEvent actionEvent) {
@@ -111,6 +111,10 @@ public class GameViewController implements Initializable {
      * @param actionEvent
      */
     public void endGame(ActionEvent actionEvent) {
+        endGameStats();
+    }
+
+    private void endGameStats(){
         int pWins = 0;
         if (ge.getGameState().getHistoricResults().size() > 0) {
             pWins = (int) ge.getGameState().getHistoricResults().stream().filter(result -> result.getType() == ResultType.Win).filter(result -> result.getWinnerPlayer().getPlayerType() == PlayerType.Human).count();
@@ -134,6 +138,7 @@ public class GameViewController implements Initializable {
         double maxBar = 10;
         hpPlayer.setProgress(1 - ((double) botWins/maxBar));
         hpAI.setProgress(1 -((double) playerWins/maxBar));
+        isGameOver(botWins, playerWins);
     }
 
     private void setStaticLabels() {
@@ -165,6 +170,16 @@ public class GameViewController implements Initializable {
             moveHistoryText.appendText("\n" + bot.getPlayerName() + ": " + bot.getWinQuote() + "\n");
         } else moveHistoryText.appendText("\n" + bot.getPlayerName() + ": " + bot.getLossQuote() + "\n");
         botThoughtsText.appendText("\n" + bot.getBotThoughts());
+    }
+
+    private void isGameOver(long botWins, long playerWins){
+        if(playerWins == 10){
+            moveHistoryText.appendText("\n" + bot.getPlayerName() + " has run out of health! You win!");
+            endGameStats();
+        } else if (botWins == 10) {
+            moveHistoryText.appendText("\n Oh no! " + playerName + " has run out of health! You lose!");
+            endGameStats();
+        }
     }
 
     /**

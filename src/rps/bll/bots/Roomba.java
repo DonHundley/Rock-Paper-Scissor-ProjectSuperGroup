@@ -95,20 +95,20 @@ public class Roomba implements IPlayer{
         if (rounds > 5) {
             if (sWins > rWins) {
                 if (sWins > pWins) {
-                    System.out.println("Scissor has won the most times, with " + sWins + " out of " + rounds + " rounds.");
+                    botThoughts = "Scissor has won the most times, with " + sWins + " out of " + rounds + " rounds. \n";
                     return Move.Scissor;
                 } else {
-                    System.out.println("Paper has won the most times, with " + pWins + " out of " + rounds + " rounds.");
+                    botThoughts = "Paper has won the most times, with " + pWins + " out of " + rounds + " rounds. \n";
                     return Move.Paper;
                 }
             } else if (rWins > pWins) {
-                System.out.println("Rock has won the most times, with " + rWins + " out of " + rounds + " rounds.");
+                botThoughts = "Rock has won the most times, with " + rWins + " out of " + rounds + " rounds. \n";
                 return Move.Rock;
             } else {
-                System.out.println("Paper has won the most times, with " + pWins + " out of " + rounds + " rounds.");
+                botThoughts = "Paper has won the most times, with " + pWins + " out of " + rounds + " rounds. \n";
                 return Move.Paper;
             }
-        } else System.out.println("I currently have no win knowledge.");
+        } else botThoughts = "I am learning. \n";
         if (r == 2) {
             return Move.Scissor;
         } else if (r == 1) {
