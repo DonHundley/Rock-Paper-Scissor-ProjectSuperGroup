@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,26 +19,26 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
+<SplitPane dividerPositions="0.1" orientation="VERTICAL" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
    <items>
-      <AnchorPane fx:id="MainAnchorPane" prefHeight="600.0" stylesheets="@Style.css">
+      <AnchorPane fx:id="MainAnchorPane" minHeight="-Infinity" prefHeight="600.0" stylesheets="@Style.css">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#184a23" height="57.0" layoutX="19.0" layoutY="96.0" stroke="BLACK" strokeType="INSIDE" width="272.0" AnchorPane.leftAnchor="15.0" />
             <Polygon fill="#184a23" layoutX="200.0" layoutY="108.0" points="115.0, 48.0, 66.0, 42.0, 66.0, -11.0" stroke="#184a23" strokeType="INSIDE" AnchorPane.leftAnchor="262.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#184a23" height="57.0" layoutX="290.0" layoutY="410.0" stroke="BLACK" strokeType="INSIDE" width="272.0" AnchorPane.rightAnchor="17.0" />
-            <Polygon fill="#184a23" layoutX="240.0" layoutY="425.0" points="28.0, 42.0, 66.0, 42.0, 66.0, -7.0" stroke="#184a23" strokeType="INSIDE" AnchorPane.rightAnchor="273.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="115.0" layoutX="296.0" layoutY="471.0" mouseTransparent="true" stroke="#6b677b" strokeType="INSIDE" strokeWidth="3.0" width="306.0" AnchorPane.rightAnchor="5.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="110.0" layoutX="271.0" layoutY="474.0" stroke="#8482c6" strokeMiterLimit="30.0" strokeType="INSIDE" strokeWidth="5.0" width="300.0" AnchorPane.rightAnchor="8.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9fad9" height="110.0" layoutX="289.0" layoutY="351.0" stroke="#184a23" strokeType="INSIDE" strokeWidth="3.0" width="265.0" AnchorPane.rightAnchor="25.0" />
-            <Label fx:id="labelPlayerName" layoutX="301.0" layoutY="364.0" prefHeight="35.0" prefWidth="151.0" text="Label" AnchorPane.rightAnchor="127.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#184a23" height="57.0" layoutX="290.0" layoutY="410.0" stroke="BLACK" strokeType="INSIDE" width="272.0" AnchorPane.bottomAnchor="133.0" AnchorPane.rightAnchor="17.0" />
+            <Polygon fill="#184a23" layoutX="240.0" layoutY="425.0" points="28.0, 42.0, 66.0, 42.0, 66.0, -7.0" stroke="#184a23" strokeType="INSIDE" AnchorPane.bottomAnchor="133.0" AnchorPane.rightAnchor="273.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="115.0" layoutX="296.0" layoutY="471.0" mouseTransparent="true" stroke="#6b677b" strokeType="INSIDE" strokeWidth="3.0" width="306.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="110.0" layoutX="271.0" layoutY="474.0" stroke="#8482c6" strokeMiterLimit="30.0" strokeType="INSIDE" strokeWidth="5.0" width="300.0" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="8.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9fad9" height="110.0" layoutX="289.0" layoutY="351.0" stroke="#184a23" strokeType="INSIDE" strokeWidth="3.0" width="265.0" AnchorPane.bottomAnchor="133.0" AnchorPane.rightAnchor="25.0" />
+            <Label fx:id="labelPlayerName" layoutX="330.0" layoutY="350.0" prefHeight="35.0" prefWidth="151.0" text="Label" AnchorPane.bottomAnchor="201.0" AnchorPane.rightAnchor="129.0">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label fx:id="roundLabel" layoutX="460.0" layoutY="355.0" text="Round " AnchorPane.rightAnchor="80.0" />
-            <Label fx:id="tiesLabel" layoutX="508.0" layoutY="355.0" text="Ties 0" AnchorPane.rightAnchor="40.0" />
-            <ProgressBar fx:id="hpPlayer" layoutX="341.0" layoutY="406.0" prefHeight="18.0" prefWidth="187.0" progress="0.0" stylesheets="@Style.css" AnchorPane.rightAnchor="38.0" />
-            <Label layoutX="302.0" layoutY="430.0" text="Win/loss" AnchorPane.rightAnchor="231.0" />
-            <Label fx:id="winLossPlayer" layoutX="524.0" layoutY="434.0" text="0/3" AnchorPane.rightAnchor="37.0" />
+            <Label fx:id="roundLabel" layoutX="479.0" layoutY="350.0" prefHeight="17.0" prefWidth="50.0" text="Round " AnchorPane.bottomAnchor="219.0" AnchorPane.rightAnchor="81.0" />
+            <Label fx:id="tiesLabel" layoutX="540.0" layoutY="350.0" text="Ties 0" AnchorPane.bottomAnchor="219.0" AnchorPane.rightAnchor="39.0" />
+            <ProgressBar fx:id="hpPlayer" layoutX="341.0" layoutY="406.0" prefHeight="18.0" prefWidth="187.0" progress="0.0" stylesheets="@Style.css" AnchorPane.bottomAnchor="176.0" AnchorPane.rightAnchor="38.0" />
+            <Label layoutX="302.0" layoutY="430.0" text="Win/loss" AnchorPane.bottomAnchor="139.0" AnchorPane.rightAnchor="231.0" />
+            <Label fx:id="winLossPlayer" layoutX="524.0" layoutY="434.0" text="0/3" AnchorPane.bottomAnchor="149.0" AnchorPane.rightAnchor="37.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9fad9" height="110.0" layoutX="23.0" layoutY="34.0" stroke="#a6aa81" strokeType="INSIDE" strokeWidth="3.0" width="265.0" AnchorPane.leftAnchor="23.0" />
             <Label fx:id="labelAI" layoutX="42.0" layoutY="44.0" prefHeight="35.0" prefWidth="141.0" text="AI" AnchorPane.leftAnchor="42.0">
                <font>
@@ -45,24 +48,33 @@
             <ProgressBar fx:id="hpAI" layoutX="97.0" layoutY="89.0" prefHeight="18.0" prefWidth="187.0" progress="0.0" AnchorPane.leftAnchor="93.0" />
             <Label layoutX="44.0" layoutY="116.0" text="Win/loss" AnchorPane.leftAnchor="42.0" />
             <Label fx:id="winLossAI" layoutX="261.0" layoutY="118.0" text="0/3" AnchorPane.leftAnchor="257.0" />
-            <Button fx:id="playButton" layoutX="324.0" layoutY="494.0" mnemonicParsing="false" onAction="#playScissors" style="-fx-background-color: transparent;" text="PLAY" AnchorPane.rightAnchor="205.0">
+            <Button fx:id="playButton" layoutX="324.0" layoutY="494.0" mnemonicParsing="false" onAction="#playScissors" style="-fx-background-color: transparent;" text="PLAY" AnchorPane.bottomAnchor="62.0" AnchorPane.rightAnchor="205.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="restartButton" layoutX="315.0" layoutY="535.0" mnemonicParsing="false" onAction="#playPaper" style="-fx-background-color: transparent;" text="RESTART" AnchorPane.rightAnchor="191.0">
+            <Button fx:id="restartButton" layoutX="315.0" layoutY="535.0" mnemonicParsing="false" onAction="#playPaper" style="-fx-background-color: transparent;" text="RESTART" AnchorPane.bottomAnchor="21.0" AnchorPane.rightAnchor="191.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="quitButton" layoutX="454.0" layoutY="535.0" mnemonicParsing="false" onAction="#endGame" style="-fx-background-color: transparent;" text="QUIT" AnchorPane.rightAnchor="75.0">
+            <Button fx:id="quitButton" layoutX="493.0" layoutY="533.0" mnemonicParsing="false" onAction="#endGame" style="-fx-background-color: transparent;" text="QUIT" AnchorPane.bottomAnchor="23.0" AnchorPane.rightAnchor="67.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <ImageView fx:id="imageAI" fitHeight="301.0" fitWidth="245.0" layoutX="361.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="14.0" />
-            <Button fx:id="rpsButton" layoutX="425.0" layoutY="497.0" mnemonicParsing="false" onAction="#playRock" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: transparent;" text=" " />
-            <ImageView fitHeight="30.0" fitWidth="56.0" layoutX="458.0" layoutY="495.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="79.0">
+            <ImageView fx:id="imageAI" mouseTransparent="true" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <viewport>
+                  <Rectangle2D height="300.0" minX="250.0" minY="10.0" width="250.0" />
+               </viewport>
+               <image>
+                  <Image url="@../../../images/benderRPS.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect></ImageView>
+            <Button fx:id="rpsButton" layoutX="493.0" layoutY="497.0" mnemonicParsing="false" onAction="#playRock" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: transparent;" text=" " AnchorPane.bottomAnchor="64.0" AnchorPane.rightAnchor="67.0" />
+            <ImageView fitHeight="30.0" fitWidth="56.0" layoutX="497.0" layoutY="495.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="61.0" AnchorPane.rightAnchor="71.0">
                <image>
                   <Image url="@../../resources/RPS.png" />
                </image>
@@ -72,18 +84,18 @@
                   <Image url="@../../resources/hp.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="18.0" fitWidth="36.0" layoutX="324.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="219.0">
+            <ImageView fitHeight="18.0" fitWidth="36.0" layoutX="324.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="177.0930233001709" AnchorPane.rightAnchor="219.0">
                <image>
                   <Image url="@../../resources/hp.png" />
                </image>
             </ImageView>
-            <Polygon layoutX="348.0" layoutY="479.0" mouseTransparent="true" points="-50.0, 40.0, -33.0, 29.0, -50.0, 21.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="264.0" />
-            <HBox layoutY="471.0" prefHeight="115.0" style="-fx-background-color: #ccaa4e;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="310.0">
+            <Polygon layoutX="348.0" layoutY="479.0" mouseTransparent="true" points="-50.0, 40.0, -33.0, 29.0, -50.0, 21.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="67.0" AnchorPane.rightAnchor="264.0" />
+            <HBox layoutY="471.0" prefHeight="115.0" prefWidth="300.0" style="-fx-background-color: #ccaa4e;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="310.0">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <children>
-                  <VBox style="-fx-background-color: #284f68;" HBox.hgrow="ALWAYS">
+                  <VBox prefWidth="300.0" style="-fx-background-color: #284f68;" HBox.hgrow="ALWAYS">
                      <children>
                         <Label prefHeight="43.0" prefWidth="200.0" text="What will" textFill="WHITE">
                            <font>
@@ -101,14 +113,36 @@
             </HBox>
          </children>
       </AnchorPane>
-      <ScrollPane maxWidth="-Infinity" prefHeight="600.0" prefWidth="225.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" style="-fx-background-color: #284f68;" stylesheets="@Style.css">
-               <children>
-                  <TextArea fx:id="moveHistoryText" layoutX="13.0" layoutY="17.0" prefHeight="564.0" prefWidth="200.0" style="-fx-background-color: #f9fad9;" stylesheets="@Style.css" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Game info">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #284f68;">
+                     <children>
+                        <TextArea fx:id="moveHistoryText" prefHeight="529.0" prefWidth="200.0" style="-fx-background-color: #f9fad9;" stylesheets="@Style.css" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Game History">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #284f68;">
+                     <children>
+                        <TextArea fx:id="gameHistoryText" prefHeight="530.0" prefWidth="200.0" style="-fx-background-color: #f9fad9;" stylesheets="@Style.css" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Bot thoughts">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #284f68;">
+                     <children>
+                        <TextArea fx:id="botThoughtsText" prefHeight="530.0" prefWidth="200.0" style="-fx-background-color: #f9fad9;" stylesheets="@Style.css" wrapText="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
    </items>
 </SplitPane>

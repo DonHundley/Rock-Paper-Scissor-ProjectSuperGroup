@@ -17,6 +17,8 @@ public class GameManager {
     private IPlayer bot;
     private IPlayer human;
 
+    private Result result;
+
     /**
      * Initializes the GameManager with IPlayers
      * Game expected to be played Human vs Bot
@@ -36,7 +38,7 @@ public class GameManager {
      */
     public Result playRound(Move human_move) {
         Move bot_move = bot.doMove(gameState); //ask the bot to make a move...
-        Result result;
+
         int roundNumber = gameState.getRoundNumber();
 
         //Rules
@@ -54,13 +56,13 @@ public class GameManager {
             System.out.println(bot.getWinQuote());
         }
 
-
-
         gameState.setRoundNumber(++roundNumber);
         gameState.getHistoricResults().add(result);
 
         return result;
     }
+
+
 
     /**
      *
@@ -68,5 +70,13 @@ public class GameManager {
      */
     public IGameState getGameState() {
         return gameState;
+    }
+
+    /**
+     * fetches the most current result
+     * @return
+     */
+    public Result getResult() {
+        return result;
     }
 }

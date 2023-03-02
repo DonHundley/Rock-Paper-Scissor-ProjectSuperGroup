@@ -27,6 +27,11 @@ public interface IPlayer {
     public String getLossQuote();
 
 
+    public String getImageFilePath();
+
+
+    public String getBotThoughts();
+
     /**
      * Returns the type of the player (AI or Human)
      * @return
@@ -41,7 +46,5 @@ public interface IPlayer {
      * @param state
      */
     public Move doMove(IGameState state);
-
-
 
 }

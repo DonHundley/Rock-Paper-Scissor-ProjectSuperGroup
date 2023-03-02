@@ -1,38 +1,29 @@
-package rps.bll.player;
+package rps.bll.bots;
 
-//Project imports
 import rps.bll.game.*;
+import rps.bll.player.*;
 
-//Java imports
 import java.util.*;
-import java.util.random.*;
 
-/**
- * Example implementation of a player.
- *
- * @author smsj
- */
-public class Player implements IPlayer {
+public class PetRock  implements IPlayer {
 
-    private String name;
+
+    private String name = "Dwayne 'The PetRock' Johnson";
     private PlayerType type;
 
-    private String imageFilePath = "";
+    private String imageFilePath = "/images/petrock.png";
 
-    private String winQuote = "";
+    private String winQuote = "Success isn’t overnight. It’s when every day you get a little better than the day before. It all adds up";
 
-    private String lossQuote = "";
+    private String lossQuote = "If something stands between you and your success, MOVE IT! Never be denied.";
 
-    private String tieQuote = "";
-
-
-
-    private String botThoughts = "";
+    private String tieQuote = "Can you smell what I'm cooking?";
+    private String botThoughts = "Rock is love, Rock is life.";
 
     /**
-     * @param name
+     *
      */
-    public Player(String name, PlayerType type) {
+    public PetRock(PlayerType type) {
         this.name = name;
         this.type = type;
         this.imageFilePath = imageFilePath;
@@ -40,6 +31,10 @@ public class Player implements IPlayer {
         this.winQuote = winQuote;
         this.tieQuote = tieQuote;
         this.botThoughts = botThoughts;
+    }
+    @Override
+    public String getImageFilePath() {
+        return imageFilePath;
     }
 
     @Override
@@ -56,24 +51,16 @@ public class Player implements IPlayer {
     public String getTieQuote() {
         return tieQuote;
     }
-    @Override
-    public String getBotThoughts() {
-        return botThoughts;
-    }
+
     @Override
     public String getPlayerName() {
         return name;
     }
-
-
+    @Override
+    public String getBotThoughts() {return botThoughts;}
     @Override
     public PlayerType getPlayerType() {
         return type;
-    }
-
-    @Override
-    public String getImageFilePath() {
-        return imageFilePath;
     }
 
     /**
@@ -83,10 +70,6 @@ public class Player implements IPlayer {
      */
     @Override
     public Move doMove(IGameState state) {
-
-        //Historic data to analyze and decide next move...
-        ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
-
-        return Move.Rock;
+       return Move.Rock;
     }
 }

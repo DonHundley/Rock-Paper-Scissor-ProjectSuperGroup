@@ -10,13 +10,17 @@ public class Roomba implements IPlayer{
     private String name = "Roomba";
     private PlayerType type;
 
-    private String imageFilePath = "src/images/RoombaRPS.png";
+    private String imageFilePath = "/images/RoombaRPS.png";
 
     private String winQuote = "You have been defeated by a vacuum, good work.";
 
     private String lossQuote = "The Roomba continues vacuuming.. are you trying to play a game against a vacuum?";
 
     private String tieQuote = "You open the bin on the Roomba after your turn and inside you find... a necktie?";
+
+
+
+    private String botThoughts = "";
 
     /**
      *
@@ -28,9 +32,17 @@ public class Roomba implements IPlayer{
         this.lossQuote = lossQuote;
         this.winQuote = winQuote;
         this.tieQuote = tieQuote;
+        this.botThoughts = botThoughts;
     }
 
-
+    @Override
+    public String getImageFilePath() {
+        return imageFilePath;
+    }
+    @Override
+    public String getBotThoughts() {
+        return botThoughts;
+    }
 
     @Override
     public String getPlayerName() {
