@@ -40,7 +40,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f9fad9" height="110.0" layoutX="23.0" layoutY="34.0" stroke="#a6aa81" strokeType="INSIDE" strokeWidth="3.0" width="265.0" AnchorPane.leftAnchor="23.0" />
             <Label fx:id="labelAI" layoutX="32.0" layoutY="38.0" prefHeight="49.0" prefWidth="187.0" text="AI" wrapText="true" AnchorPane.leftAnchor="32.0">
                <font>
-                  <Font size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font></Label>
             <Label fx:id="botLevelDisplay" layoutX="228.0" layoutY="44.0" text="Bot level 1" AnchorPane.leftAnchor="224.0" />
             <ProgressBar fx:id="hpAI" layoutX="97.0" layoutY="89.0" prefHeight="18.0" prefWidth="187.0" progress="0.0" AnchorPane.leftAnchor="93.0" />
